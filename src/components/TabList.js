@@ -4,7 +4,7 @@
  * @Author: suckson
  * @Date: 2019-09-26 20:55:25
  * @LastEditors: suckson
- * @LastEditTime: 2019-09-26 21:49:47
+ * @LastEditTime: 2019-09-26 22:12:58
  */
 import React from 'react'
 
@@ -15,9 +15,11 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import classNames from 'classnames'
 
+import './TabList.scss'
+
 const TabList = ({files, activedId, unsaveIds, onTabClick, onCloseTab}) =>{
   return(
-    <ul className="nav nav-pills">
+    <ul className="nav nav-pills tablist-component">
       {files.map(file => {
         const fClassNames = classNames({
           'nav-link': true,
