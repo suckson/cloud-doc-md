@@ -2,7 +2,7 @@
  * @Author: suckson
  * @Date: 2019-09-19 13:55:35
  * @LastEditors: suckson
- * @LastEditTime: 2019-10-07 21:11:58
+ * @LastEditTime: 2019-10-08 09:04:01
  */
 import React from 'react'
 import {faPlus, faFileImport} from '@fortawesome/free-solid-svg-icons'
@@ -21,11 +21,7 @@ function App() {
     <div className="App container-fluid px-0">
       <div className="row">
         <div className="col-3 bg-light left-panel">
-          <FileSearch
-           onFileSearch = {(value) =>{
-             console.log(value)
-           }}
-          />
+          <FileSearch onFileSearch = {(value) =>{ console.log(value) }} />
           <FileList files={ defaultFiles } 
            onFileClick={(id) => {console.log(id)}}
            onSaveEdit={(id, newVlaue) => {console.log(id + newVlaue)}}
