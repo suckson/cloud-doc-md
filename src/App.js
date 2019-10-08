@@ -2,7 +2,7 @@
  * @Author: suckson
  * @Date: 2019-09-19 13:55:35
  * @LastEditors: suckson
- * @LastEditTime: 2019-09-26 21:46:26
+ * @LastEditTime: 2019-10-07 21:11:58
  */
 import React from 'react'
 import {faPlus, faFileImport} from '@fortawesome/free-solid-svg-icons'
@@ -45,6 +45,8 @@ function App() {
            files={defaultFiles} 
            onTabClick={(id) => { console.log(id) }}
            activedId='1'
+           unsaveIds={["1","2"]}
+           onCloseTab={(id) => {console.log('closing', id)}}
            /> 
         </div>
       </div>
