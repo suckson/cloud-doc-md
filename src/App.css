@@ -2,4 +2,37 @@
   background: none;
   border: none;
   color: inherit;
+  display: block;
+}
+.c-link {
+  cursor: point;
+}
+.page-start{
+  font-size:30px;
+  height:300px;
+  line-height:300px;
+  color: #ccc;
+  text-align:center
+}
+.left-panel {
+  min-height: 100vh;
+  position:relative;
+}
+.button-group {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+.no-border{
+  border-radius: 0 !important;
+}
+.list-group-item {
+  padding: .35rem 0.25rem !important;
+}
+.myinput-text{
+  height:calc(1rem + .75rem + 2px) !important;
+  line-height: calc(1rem + .75rem + 2px) !important;
+}
+.alert{
+  padding: 0.35rem 0.85rem !important;
 }

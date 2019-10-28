@@ -4,7 +4,7 @@
  * @Author: suckson
  * @Date: 2019-09-26 20:55:25
  * @LastEditors: suckson
- * @LastEditTime: 2019-10-07 21:17:53
+ * @LastEditTime: 2019-10-16 17:17:26
  */
 import React from 'react'
 
@@ -19,32 +19,32 @@ import './TabList.scss'
 
 const TabList = ({files, activedId, unsaveIds, onTabClick, onCloseTab}) =>{
   return(
-    <ul className="nav nav-pills tablist-component">
+   <ul className="nav nav-pills tablist-component">
       {files.map(file => {
-        const widthUnsavedMark = unsaveIds.includes(file.id)
-        const fClassNames = classNames({
+        const withUnsavedMark = unsaveIds.includes(file.id)
+        const fClassName = classNames({
           'nav-link': true,
-          'active': file.id === activedId,
-          'withUnsaved': widthUnsavedMark
+          'active': file.id === activeId,
+          'withUnsaved': withUnsavedMark
         })
         return (
           <li className="nav-item" key={file.id}>
-            <a
+            <a 
               href="#"
-              className= {fClassNames}
-              onClick={(e) => {e.stopPropagation(); onTabClick(file.id)}}
+              className={fClassName}
+              onClick={(e) => {e.preventDefault(); onTabClick(file.id)}}
             >
-               {file.title}
-               <span className="ml-2 close-icon" onClick="{(e) => {
-                 e.preventDefault()
-                 onCloseTab(file.id)
-               }}">
-                <FontAwesomeIcon size="lg" title="编辑" icon={faTimes}/>
-               </span>
-               {
-                 widthUnsavedMark && <span className="rounded-circle unsaved-icon ml-2"></span>
-               }
-             </a>
+              {file.title}
+              <span 
+                className="ml-2 close-icon"
+                onClick={(e) => {e.stopPropagation(); onCloseTab(file.id)}}
+              >
+                <FontAwesomeIcon
+                  icon={faTimes} 
+                />
+              </span>
+              { withUnsavedMark && <span className="rounded-circle ml-2 unsaved-icon"></span>}
+            </a>
           </li>
         )
       })}
