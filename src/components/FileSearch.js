@@ -4,7 +4,7 @@
  * @Author: suckson
  * @Date: 2019-09-19 16:19:19
  * @LastEditors: suckson
- * @LastEditTime: 2019-09-22 00:30:23
+ * @LastEditTime: 2019-12-03 18:03:30
  */
 import React , { useState, useEffect, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -18,9 +18,14 @@ const FileSearch = ({title, onFileSearch}) => {
   const enterPressed = useKeyPress(13)
   const escPressed = useKeyPress(27)
   let node = useRef(null)
+
+  const startSearch = () => {
+    setInputActive(true)
+  }
   const closeSearch = () =>{
     setInputActive(false)
     setValue('')
+    onFileSearch(false)
   }
   useEffect(() => {
     if(enterPressed && inputActive){
@@ -41,7 +46,7 @@ const FileSearch = ({title, onFileSearch}) => {
         <span>{ title }</span>
         <button type="button" 
         className="icon-button"
-        onClick = {() => { setInputActive(true) }}
+        onClick = {startSearch}
         >
         <FontAwesomeIcon icon={ faSearch } title="搜索"  size="lg" />
         </button>
@@ -52,7 +57,11 @@ const FileSearch = ({title, onFileSearch}) => {
          className="from-control"
          value = { value }
          ref = {node}
-         onChange = {(e) => {setValue(e.target.value)}}
+         onChange = {(e) => {
+         // console.log(e.target.value)
+          onFileSearch(e.target.value)
+          setValue(e.target.value)
+         }}
          />
          <button type="button" 
           className="icon-button"
